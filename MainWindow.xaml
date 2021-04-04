@@ -44,12 +44,12 @@
         </Grid>
         <Grid x:Name="GridMoney" Margin="20,228,157.8,197.6">
             <CheckBox x:Name="Money" Content="" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="15" Height="19" Checked="Money_Checked" Unchecked="Money_Unchecked"/>
-            <Label Content="Зарплата" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Height="24" Width="128" Background="{x:Null}" FontSize="10" Foreground="#FF7169B7" FontWeight="Bold"/>
+            <Label Content="Зарплата (руб.)" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Height="24" Width="128" Background="{x:Null}" FontSize="10" Foreground="#FF7169B7" FontWeight="Bold"/>
 
         </Grid>
         <Grid x:Name="GridExperience" Margin="20,257,157.8,168.6">
             <CheckBox x:Name="Experience" Content="" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="15" Height="19" Checked="Experience_Checked" Unchecked="Experience_Unchecked"/>
-            <Label Content="Опыт работы" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Height="24" Width="128" Background="{x:Null}" FontSize="10" Foreground="#FF7169B7" FontWeight="Bold"/>
+            <Label Content="Опыт работы (лет)" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Height="24" Width="128" Background="{x:Null}" FontSize="10" Foreground="#FF7169B7" FontWeight="Bold"/>
 
         </Grid>
         <Grid x:Name="GridEnglish" Margin="20,286,157.8,139.6">
@@ -62,21 +62,57 @@
         <Button x:Name="BtnStartSort" Content="ОТСОРТИРОВАТЬ" Margin="91,414,91.8,0" VerticalAlignment="Top" Height="21" Background="#FF7169B7" BorderBrush="{x:Null}" Foreground="White" Click="BtnStartSort_Click"/>
         <TextBox x:Name="TbSPath" HorizontalAlignment="Left" Height="21" Margin="125,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" Background="{x:Null}" BorderBrush="#FF7169B7" Foreground="#FF7169B7" IsEnabled="False"/>
         <TextBox x:Name="TbDPath" HorizontalAlignment="Left" Height="21" Margin="125,377,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" BorderBrush="#FF7169B7" Background="{x:Null}" Foreground="#FF7169B7" IsEnabled="False"/>
-        <ComboBox x:Name="CbGender" Text="Пол" HorizontalAlignment="Left" Margin="168,56,0,0" VerticalAlignment="Top" Width="132" IsEnabled="False" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF7169B7">
+        <ComboBox x:Name="CbGender" Text="Пол:" HorizontalAlignment="Left" Margin="168,56,0,0" VerticalAlignment="Top" Width="132" IsEnabled="False" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF7169B7">
             <ComboBoxItem Content="Мужской" HorizontalAlignment="Left" Width="130.4"/>
             <ComboBoxItem Content="Женский" HorizontalAlignment="Left" Width="130.4"/>
         </ComboBox>
         <ComboBox x:Name="CbAge" Text="Пол" HorizontalAlignment="Left" Margin="168,85,0,0" VerticalAlignment="Top" Width="132" IsEnabled="False"/>
-        <ComboBox x:Name="CbEducation" Text="Пол" HorizontalAlignment="Left" Margin="168,114,0,0" VerticalAlignment="Top" Width="132" IsEnabled="False"/>
-        <ComboBox x:Name="CbCitizenship" Text="Пол" HorizontalAlignment="Left" Margin="168,141,0,0" VerticalAlignment="Top" Width="132" IsEnabled="False" Foreground="#FF7169B7">
-            <ComboBoxItem Content="Российское" HorizontalAlignment="Left" Width="130.4" Foreground="#FF7169B7"/>
-            <ComboBoxItem Content="Украинское" HorizontalAlignment="Left" Width="130.4"/>
+        <ComboBox x:Name="CbEducation" Text="Пол:" HorizontalAlignment="Left" Margin="168,114,0,0" VerticalAlignment="Top" Width="132" IsEnabled="False">
+            <ComboBoxItem Content="Начальное общее" HorizontalAlignment="Left" Width="130.4" Foreground="#FF7169B5"/>
+            <ComboBoxItem Content="Среднее общее" HorizontalAlignment="Left" Width="130.4" Foreground="#FF7169B5"/>
+            <ComboBoxItem Content="Бакалавриат" HorizontalAlignment="Left" Width="130.4" Foreground="#FF7169B5"/>
+            <ComboBoxItem Content="Специалитет" HorizontalAlignment="Left" Width="130.4" Foreground="#FF7169B5"/>
+            <ComboBoxItem Content="Магистратура" HorizontalAlignment="Left" Width="130.4" Foreground="#FF7169B5"/>
         </ComboBox>
-        <ComboBox x:Name="CbScientist" Text="Пол" HorizontalAlignment="Left" Margin="168,170,0,0" VerticalAlignment="Top" Width="132" IsEnabled="False"/>
-        <ComboBox x:Name="CbPost" Text="Пол" HorizontalAlignment="Left" Margin="168,199,0,0" VerticalAlignment="Top" Width="132" IsEnabled="False"/>
-        <ComboBox x:Name="CbMoney" Text="Пол" HorizontalAlignment="Left" Margin="168,228,0,0" VerticalAlignment="Top" Width="132" IsEnabled="False"/>
-        <ComboBox x:Name="CbExperience" Text="Пол" HorizontalAlignment="Left" Margin="168,257,0,0" VerticalAlignment="Top" Width="132" IsEnabled="False"/>
-        <ComboBox x:Name="CbEnglish" Text="Пол" HorizontalAlignment="Left" Margin="168,288,0,0" VerticalAlignment="Top" Width="132" IsEnabled="False"/>
+        <ComboBox x:Name="CbCitizenship" Text="Пол:" HorizontalAlignment="Left" Margin="168,141,0,0" VerticalAlignment="Top" Width="132" IsEnabled="False" Foreground="#FF7169B7">
+            <ComboBoxItem Content="Россия" HorizontalAlignment="Left" Width="130.4" Foreground="#FF7169B7"/>
+            <ComboBoxItem Content="Азербайджан" HorizontalAlignment="Left" Width="130.4"/>
+            <ComboBoxItem Content="Армения" HorizontalAlignment="Left" Width="130.4"/>
+            <ComboBoxItem Content="Белоруссия" HorizontalAlignment="Left" Width="130.4"/>
+            <ComboBoxItem Content="Казахстан" HorizontalAlignment="Left" Width="130.4"/>
+            <ComboBoxItem Content="Киргизия" HorizontalAlignment="Left" Width="130.4"/>
+            <ComboBoxItem Content="Молдавия" HorizontalAlignment="Left" Width="130.4"/>
+            <ComboBoxItem Content="Таджикистан" HorizontalAlignment="Left" Width="130.4"/>
+            <ComboBoxItem Content="Украина" HorizontalAlignment="Left" Width="130.4"/>
+            <ComboBoxItem Content="Узбекистан" HorizontalAlignment="Left" Width="130.4"/>
+        </ComboBox>
+        <ComboBox x:Name="CbScientist" Text="Пол:" HorizontalAlignment="Left" Margin="168,170,0,0" VerticalAlignment="Top" Width="132" IsEnabled="False">
+            <ComboBoxItem Content="Доцент" HorizontalAlignment="Left" Width="130.4" Background="{x:Null}" Foreground="#FF7169B5"/>
+            <ComboBoxItem Content="Профессор" HorizontalAlignment="Left" Width="130.4" Background="{x:Null}" Foreground="#FF7169B5"/>
+        </ComboBox>
+        <ComboBox x:Name="CbPost" Text="Пол:" HorizontalAlignment="Left" Margin="168,199,0,0" VerticalAlignment="Top" Width="132" IsEnabled="False">
+            <ComboBoxItem Content="Лаборант" HorizontalAlignment="Left" Width="130.4" Foreground="#FF7169B5"/>
+            <ComboBoxItem Content="Старший лаборант" HorizontalAlignment="Left" Width="130.4" Foreground="#FF7169B5"/>
+            <ComboBoxItem Content="Ассистент" HorizontalAlignment="Left" Width="130.4" Foreground="#FF7169B5"/>
+            <ComboBoxItem Content="Преподаватель" HorizontalAlignment="Left" Width="130.4" Foreground="#FF7169B5"/>
+            <ComboBoxItem Content="Старший преподаватель" HorizontalAlignment="Left" Width="130" Foreground="#FF7169B5"/>
+            <ComboBoxItem Content="Доцент" HorizontalAlignment="Left" Width="130.4" Foreground="#FF7169B5"/>
+            <ComboBoxItem Content="Профессор" HorizontalAlignment="Left" Width="130.4" Foreground="#FF7169B5"/>
+            <ComboBoxItem Content="Завкафедрой" HorizontalAlignment="Left" Width="130.4" Foreground="#FF7169B5"/>
+            <ComboBoxItem Content="Декан" HorizontalAlignment="Left" Width="130.4" Foreground="#FF7169B5"/>
+            <ComboBoxItem Content="Проректор" HorizontalAlignment="Left" Width="130.4" Foreground="#FF7169B5"/>
+            <ComboBoxItem Content="Ректор" HorizontalAlignment="Left" Width="130.4" Foreground="#FF7169B5"/>
+        </ComboBox>
+        <ComboBox x:Name="CbMoney" Text="Пол:" HorizontalAlignment="Left" Margin="168,228,0,0" VerticalAlignment="Top" Width="132" IsEnabled="False"/>
+        <ComboBox x:Name="CbExperience" Text="Пол:" HorizontalAlignment="Left" Margin="168,257,0,0" VerticalAlignment="Top" Width="132" IsEnabled="False"/>
+        <ComboBox x:Name="CbEnglish" Text="Пол:" HorizontalAlignment="Left" Margin="168,288,0,0" VerticalAlignment="Top" Width="132" IsEnabled="False">
+            <ComboBoxItem Content="Начальный" HorizontalAlignment="Left" Width="130.4" Foreground="#FF7169B5"/>
+            <ComboBoxItem Content="Элементарный" HorizontalAlignment="Left" Width="130.4" Foreground="#FF7169B5"/>
+            <ComboBoxItem Content="Слабый средний" HorizontalAlignment="Left" Width="130.4" Foreground="#FF7169B5"/>
+            <ComboBoxItem Content="Средний" HorizontalAlignment="Left" Width="130.4" Foreground="#FF7169B5"/>
+            <ComboBoxItem Content="Выше среднего" HorizontalAlignment="Left" Width="130.4" Foreground="#FF7169B5"/>
+            <ComboBoxItem Content="Продинутый" HorizontalAlignment="Left" Width="130.4" Foreground="#FF7169B5"/>
+        </ComboBox>
 
     </Grid>
 </Window>
