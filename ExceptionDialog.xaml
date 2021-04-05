@@ -1,0 +1,15 @@
+﻿<Window x:Class="RezumeReader.ExceptionDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RezumeReader"
+        mc:Ignorable="d"
+        Title="ExceptionDialog" Height="103.158" Width="278.8" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <Grid Background="#FF7169B7">
+        <Label Content="Ошибка" HorizontalAlignment="Left" Margin="0,-3,0,0" VerticalAlignment="Top" Width="116" FontSize="10" Foreground="White"/>
+        <Label Content="Указанный вами путь не найден." HorizontalAlignment="Left" Margin="22,26,0,0" VerticalAlignment="Top" Width="236" FontSize="15" Foreground="White"/>
+        <Button x:Name="BtnStartSort" Content="ОК" Margin="121,69,119.4,0" VerticalAlignment="Top" Height="21" Background="White" BorderBrush="{x:Null}" Foreground="#FF7169B7" Click="BtnStartSort_Click"/>
+
+    </Grid>
+</Window>

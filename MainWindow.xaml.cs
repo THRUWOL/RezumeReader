@@ -16,7 +16,7 @@ namespace RezumeReader
 
         private void Window_MouseLeftButtonDown(object sender, RoutedEventArgs e) => this.DragMove();
 
-        private void BtnClose_Click(object sender, RoutedEventArgs e) => this.DragMove();
+        private void BtnClose_Click(object sender, RoutedEventArgs e) => this.Close();
 
         /*       Установка пути к папке с файлами    */
         private void BtnSPath_Click(object sender, RoutedEventArgs e)
@@ -56,28 +56,44 @@ namespace RezumeReader
             string sPath = TbSPath.Text;
             string dPath = TbDPath.Text;
 
-            string[] file_list = Directory.GetFiles(sPath, "*.docx"); //получаем список docx файлов
-
             Wordapp = new Word.Application();
 
             Wordapp.Visible = false;
-                        
-            if (sPath != null)
+            try
             {
-                
-                foreach (string file_to_read in file_list)
+                string[] file_list = Directory.GetFiles(sPath, "*.docx"); //получаем список docx файлов
+
+                if (sPath.Length != 0 && dPath.Length != 0)
                 {
-                    Wordapp.Documents.Open(file_to_read);
-                    string wordtext = Wordapp.Documents.Open(file_to_read).Content.Text;
-                    if (wordtext.Contains(CbGender.Text) && wordtext.Contains(CbAge.Text) && wordtext.Contains(CbEducation.Text)&&
-                        wordtext.Contains(CbCitizenship.Text) && wordtext.Contains(CbScientist.Text) && wordtext.Contains(CbPost.Text)&&
-                        wordtext.Contains(CbMoney.Text) && wordtext.Contains(CbExperience.Text) && wordtext.Contains(CbEnglish.Text))
+
+                    foreach (string file_to_read in file_list)
                     {
-                        Wordapp.Documents.Close();
-                        File.Copy(file_to_read, dPath + @"\" + Path.GetFileName(file_to_read), true);
+                        Wordapp.Documents.Open(file_to_read);
+                        string wordtext = Wordapp.Documents.Open(file_to_read).Content.Text;
+                        if (wordtext.Contains("Шаблон") == false &&
+                            (wordtext.IndexOf(CbGender.Text, StringComparison.OrdinalIgnoreCase) >= 0) &&
+                            (wordtext.IndexOf(CbEducation.Text, StringComparison.OrdinalIgnoreCase) >= 0) &&
+                            (wordtext.IndexOf(CbCitizenship.Text, StringComparison.OrdinalIgnoreCase) >= 0) &&
+                            (wordtext.IndexOf(CbScientist.Text, StringComparison.OrdinalIgnoreCase) >= 0) &&
+                            (wordtext.IndexOf(CbPost.Text, StringComparison.OrdinalIgnoreCase) >= 0) &&
+                            (wordtext.IndexOf(CbEnglish.Text, StringComparison.OrdinalIgnoreCase) >= 0))
+                        {
+                            Wordapp.Documents.Close();
+                            File.Copy(file_to_read, dPath + @"\" + Path.GetFileName(file_to_read), true);
+                        }
+                        else Wordapp.Documents.Close();
                     }
-                    else Wordapp.Documents.Close();
                 }
+                else
+                {
+                    ExceptionDialog exceptionDialog = new ExceptionDialog();
+                    exceptionDialog.ShowDialog();
+                }
+            }
+            catch(Exception)
+            {
+                ExceptionDialog exceptionDialog = new ExceptionDialog();
+                exceptionDialog.ShowDialog();
             }
             Wordapp.Documents.Save();
             Wordapp.Quit();
@@ -85,13 +101,10 @@ namespace RezumeReader
 
         /* Checked события */
         private void Gender_Checked(object sender, RoutedEventArgs e) => CbGender.IsEnabled = true;
-        private void Age_Checked(object sender, RoutedEventArgs e) => CbAge.IsEnabled = true;
         private void Education_Checked(object sender, RoutedEventArgs e) => CbEducation.IsEnabled = true;
         private void Citizenship_Checked(object sender, RoutedEventArgs e) => CbCitizenship.IsEnabled = true;
         private void Scientist_Checked(object sender, RoutedEventArgs e) => CbScientist.IsEnabled = true;
         private void Post_Checked(object sender, RoutedEventArgs e) => CbPost.IsEnabled = true;
-        private void Money_Checked(object sender, RoutedEventArgs e) => CbMoney.IsEnabled = true;
-        private void Experience_Checked(object sender, RoutedEventArgs e) => CbExperience.IsEnabled = true;
         private void English_Checked(object sender, RoutedEventArgs e) => CbEnglish.IsEnabled = true;
 
         /* UNhecked события */
@@ -99,11 +112,6 @@ namespace RezumeReader
         {
             CbGender.IsEnabled = false;
             CbGender.Text = "Пол";
-        }
-        private void Age_Unchecked(object sender, RoutedEventArgs e)
-        {
-            CbAge.IsEnabled = false;
-            CbAge.Text = "Пол";
         }
         private void Education_Unchecked(object sender, RoutedEventArgs e)
         {
@@ -124,16 +132,6 @@ namespace RezumeReader
         {
             CbPost.IsEnabled = false;
             CbPost.Text = "Пол";
-        }
-        private void Money_Unchecked(object sender, RoutedEventArgs e)
-        {
-            CbMoney.IsEnabled = false;
-            CbMoney.Text = "Пол";
-        }
-        private void Experience_Unchecked(object sender, RoutedEventArgs e)
-        {
-            CbExperience.IsEnabled = false;
-            CbExperience.Text = "Пол";
         }
         private void English_Unchecked(object sender, RoutedEventArgs e)
         {
