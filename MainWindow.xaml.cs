@@ -4,6 +4,7 @@ using Word = Microsoft.Office.Interop.Word;
 using winForms = System.Windows.Forms;
 using System.IO;
 using Path = System.IO.Path;
+using System.Diagnostics;
 
 namespace RezumeReader
 {
@@ -59,17 +60,21 @@ namespace RezumeReader
             Wordapp = new Word.Application();
 
             Wordapp.Visible = false;
+
             try
             {
                 string[] file_list = Directory.GetFiles(sPath, "*.docx"); //получаем список docx файлов
+
 
                 if (sPath.Length != 0 && dPath.Length != 0)
                 {
 
                     foreach (string file_to_read in file_list)
                     {
+                        Wordapp.Application.Visible = false;
                         Wordapp.Documents.Open(file_to_read);
                         string wordtext = Wordapp.Documents.Open(file_to_read).Content.Text;
+                        
                         if (wordtext.Contains("Шаблон") == false &&
                             (wordtext.IndexOf(CbGender.Text, StringComparison.OrdinalIgnoreCase) >= 0) &&
                             (wordtext.IndexOf(CbEducation.Text, StringComparison.OrdinalIgnoreCase) >= 0) &&
@@ -77,12 +82,10 @@ namespace RezumeReader
                             (wordtext.IndexOf(CbScientist.Text, StringComparison.OrdinalIgnoreCase) >= 0) &&
                             (wordtext.IndexOf(CbPost.Text, StringComparison.OrdinalIgnoreCase) >= 0) &&
                             (wordtext.IndexOf(CbEnglish.Text, StringComparison.OrdinalIgnoreCase) >= 0))
-                        {
-                            Wordapp.Documents.Close();
                             File.Copy(file_to_read, dPath + @"\" + Path.GetFileName(file_to_read), true);
-                        }
-                        else Wordapp.Documents.Close();
+
                     }
+                    Process.Start("explorer", dPath);
                 }
                 else
                 {
@@ -95,8 +98,7 @@ namespace RezumeReader
                 ExceptionDialog exceptionDialog = new ExceptionDialog();
                 exceptionDialog.ShowDialog();
             }
-            Wordapp.Documents.Save();
-            Wordapp.Quit();
+            Wordapp.Quit(true);
         }
 
         /* Checked события */

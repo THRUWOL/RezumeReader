@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RezumeReader"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="320.8" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        Title="MainWindow" Height="450" Width="320.8" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown" Background="#FFFCFCFC">
     <Grid>
         <Grid x:Name="GridUpPanel" Margin="0,0,-0.2,430.6" Background="#FF7169B7">
             <Button x:Name="BtnClose" Content="❌" HorizontalAlignment="Left" VerticalAlignment="Top" Width="27" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="BtnClose_Click" Margin="294,0,0,0"/>
@@ -42,11 +42,11 @@
             <Label Content="Знание английского" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Height="24" Width="128" Background="{x:Null}" FontSize="10" Foreground="#FF7169B7" FontWeight="Bold"/>
 
         </Grid>
-        <Button x:Name="BtnSPath" Content="Путь к файлам" HorizontalAlignment="Left" Margin="20,342,0,0" VerticalAlignment="Top" Width="100" Height="21" Background="#FF7169B7" BorderBrush="{x:Null}" Foreground="White" Click="BtnSPath_Click"/>
-        <Button x:Name="BtnDPath" Content="Путь для копий" HorizontalAlignment="Left" Margin="20,377,0,0" VerticalAlignment="Top" Width="100" Height="21" Background="#FF7169B7" BorderBrush="{x:Null}" Foreground="White" Click="BtnDPath_Click"/>
-        <Button x:Name="BtnStartSort" Content="ОТСОРТИРОВАТЬ" Margin="91,414,91.8,0" VerticalAlignment="Top" Height="21" Background="#FF7169B7" BorderBrush="{x:Null}" Foreground="White" Click="BtnStartSort_Click"/>
-        <TextBox x:Name="TbSPath" HorizontalAlignment="Left" Height="21" Margin="125,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" Background="{x:Null}" BorderBrush="#FF7169B7" Foreground="#FF7169B7"/>
-        <TextBox x:Name="TbDPath" HorizontalAlignment="Left" Height="21" Margin="125,377,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" BorderBrush="#FF7169B7" Background="{x:Null}" Foreground="#FF7169B7"/>
+        <Button x:Name="BtnSPath" Content="Путь к файлам" HorizontalAlignment="Left" Margin="20,324,0,0" VerticalAlignment="Top" Width="100" Height="21" Background="#FF7169B7" BorderBrush="{x:Null}" Foreground="White" Click="BtnSPath_Click"/>
+        <Button x:Name="BtnDPath" Content="Путь для копий" HorizontalAlignment="Left" Margin="20,359,0,0" VerticalAlignment="Top" Width="100" Height="21" Background="#FF7169B7" BorderBrush="{x:Null}" Foreground="White" Click="BtnDPath_Click"/>
+        <Button x:Name="BtnStartSort" Content="ОТСОРТИРОВАТЬ" Margin="91,396,91.8,0" VerticalAlignment="Top" Height="21" Background="#FF7169B7" BorderBrush="{x:Null}" Foreground="White" Click="BtnStartSort_Click"/>
+        <TextBox x:Name="TbSPath" HorizontalAlignment="Left" Height="21" Margin="125,324,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" Background="{x:Null}" BorderBrush="#FF7169B7" Foreground="#FF7169B7" TextAlignment="Justify" FontSize="10"/>
+        <TextBox x:Name="TbDPath" HorizontalAlignment="Left" Height="21" Margin="125,358,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" BorderBrush="#FF7169B7" Background="{x:Null}" Foreground="#FF7169B7" TextAlignment="Justify" FontSize="10"/>
         <ComboBox x:Name="CbGender" Text="Пол:" HorizontalAlignment="Left" Margin="168,56,0,0" VerticalAlignment="Top" Width="132" IsEnabled="False" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF7169B7">
             <ComboBoxItem Content="Мужской" HorizontalAlignment="Left" Width="130.4"/>
             <ComboBoxItem Content="Женский" HorizontalAlignment="Left" Width="130.4"/>
